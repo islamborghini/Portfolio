@@ -37,7 +37,7 @@ const About = () => {
           </div>
           <div className="flex items-center justify-between gap-4 px-5mt-4">
             <a
-              href="/assets/00AssanovIsla.pdf"
+              href="/assets/000AssanovResume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
