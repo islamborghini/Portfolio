@@ -45,6 +45,7 @@ const Projects = () => {
                   {tech}
                 </span>
               ))}
+              <br />
               <a
                 href={project.githubLink}
                 target="_blank"
