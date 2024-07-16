@@ -38,14 +38,14 @@ export const PROJECTS = [
     title: "Pl-speech",
     image: project2,
     description:
-      "Real-time Polish-to-English and English-to-Polish speech-to-text translator. Was used by Econverse on their conferences",
+      "Real-time Polish-to-English and English-to-Polish speech-to-text translator. Was used by Econverse on their conferences.",
     technologies: ["Python", "Whisper", "Deep Translator", "PyQt"],
   },
   {
     title: "WELLTH",
     image: project3,
     description:
-      "IOS application with an integrated chatbot and Apple HealthKit to prevent from overwhelming.  ",
+      "IOS application with an integrated chatbot and Apple HealthKit to prevent from overwhelming.",
     technologies: ["Swift", "OpenAI API", "Apple HealthKit"],
   },
   {
@@ -61,7 +61,7 @@ export const ACHIEVEMENTS = [
   {
     year: "2022",
     title: "Astana IT University Competitive Programming Finalist",
-    description: "Awarded for outstanding knowledge in solving competitive programming problems. 2000+ participants",
+    description: "Awarded for outstanding knowledge in solving competitive programming problems. 2000+ participants.",
   },
   {
     year: "2023",
@@ -71,7 +71,7 @@ export const ACHIEVEMENTS = [
   {
     year: "2024",
     title: "UC Berkeley Hack For Impact Winner",
-    description: "Awarded for the best solution for The Dancing Cat. 300+ paricipants ",
+    description: "Awarded for the best solution for The Dancing Cat. 300+ paricipants.",
   },
   // Add more achievements as needed
 ];
