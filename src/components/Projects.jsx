@@ -37,14 +37,22 @@ const Projects = () => {
             >
               <h6 className="mb-2 font-semibold">{project.title}</h6>
               <p className="mb-4 text-neutral-400">{project.description}</p>
-              {project.technologies.map((tech, index) => (
+              {project.technologies.map((tech, techIndex) => (
                 <span
-                  key={index}
+                  key={techIndex}
                   className="mr-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-900"
                 >
                   {tech}
                 </span>
               ))}
+              <a
+                href={project.githubLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-2 inline-block text-sm font-medium text-blue-500 hover:underline"
+              >
+                Read More
+              </a>
             </motion.div>
           </div>
         ))}

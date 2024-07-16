@@ -33,6 +33,7 @@ export const PROJECTS = [
     description:
       "a Django-based web application designed to help users discover, share, and manage recipes in an intuitive and user-friendly interface. With Bootstrap CSS for styling, the platform offers a seamless experience for food enthusiasts to explore new dishes and organize their favorite recipes.",
     technologies: ["Django", "PostgreSQL", "HTML", "Bootstrap"],
+    githubLink: "https://github.com/islamborghini/chef.in"
   },
   {
     title: "Pl-speech",
@@ -40,6 +41,7 @@ export const PROJECTS = [
     description:
       "Real-time Polish-to-English and English-to-Polish speech-to-text translator. Was used by Econverse on their conferences.",
     technologies: ["Python", "Whisper", "Deep Translator", "PyQt"],
+    githubLink: "https://github.com/islamborghini/pl-speech/"
   },
   {
     title: "WELLTH",
@@ -47,6 +49,7 @@ export const PROJECTS = [
     description:
       "IOS application with an integrated chatbot and Apple HealthKit to prevent from overwhelming.",
     technologies: ["Swift", "OpenAI API", "Apple HealthKit"],
+    githubLink: "https://github.com/islamborghini/health2"
   },
   {
     title: "Caffeine Intake Recommender",
@@ -54,6 +57,7 @@ export const PROJECTS = [
     description:
       "Javascript based application for Amazfit watch to calculate the recommended caffeine intake based on health data.",
     technologies: ["Javascript", "Zepp OS"],
+    githubLink: "https://github.com/islamborghini/CalHacks"
   },
 ];
 
