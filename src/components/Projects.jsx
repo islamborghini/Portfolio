@@ -37,23 +37,26 @@ const Projects = () => {
             >
               <h6 className="mb-2 font-semibold text-center lg:text-left">{project.title}</h6>
               <p className="mb-4 text-neutral-400 text-center lg:text-left">{project.description}</p>
-              {project.technologies.map((tech, techIndex) => (
-                <span
-                  key={techIndex}
-                  className="mr-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-900"
+              <div className="flex flex-wrap justify-center lg:justify-start">
+                {project.technologies.map((tech, techIndex) => (
+                  <span
+                    key={techIndex}
+                    className="mr-2 mb-2 rounded bg-neutral-900 px-2 py-1 text-sm font-medium text-purple-900"
+                  >
+                    {tech}
+                  </span>
+                ))}
+              </div>
+              <div className="flex justify-center lg:justify-start">
+                <a
+                  href={project.githubLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-block px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
                 >
-                  {tech}
-                </span>
-              ))}
-              <br />
-              <a
-                href={project.githubLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-block px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
-              >
-                Read More
-              </a>
+                  Read More
+                </a>
+              </div>
             </motion.div>
           </div>
         ))}

@@ -13,7 +13,7 @@ const Achievements = () => {
         Achievements
       </motion.h1>
       <div className="relative">
-        <div className="absolute left-1/2 h-full border-l-2 border-neutral-400 transform -translate-x-1/2"></div>
+        <div className="absolute left-1/2 h-full border-l-2 border-neutral-400 transform -translate-x-1/2 hidden lg:block"></div>
         {ACHIEVEMENTS.map((achievement, index) => (
           <motion.div
             key={index}
