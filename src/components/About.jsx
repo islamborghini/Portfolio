@@ -10,14 +10,14 @@ const About = () => {
         About
         <span className="text-neutral-500"> Me</span>
       </h1>
-      <div className="flex flex-col lg:flex-row lg:flex-wrap">
+      <div className="flex flex-wrap flex-col lg:flex-row">
         <motion.div
           whileInView={{ opacity: 1, x: 0 }}
           initial={{ opacity: 0, x: -100 }}
           transition={{ duration: 0.5 }}
-          className="w-full lg:w-1/2 order-1 lg:order-1"
+          className="w-full lg:w-1/2 lg:p-8"
         >
-          <div className="flex items-center justify-center mb-6 lg:mb-0">
+          <div className="flex items-center justify-center">
             <img
               className="rounded-2xl w-64 h-64 lg:w-96 lg:h-96 object-cover"
               src={aboutImg}
@@ -29,12 +29,12 @@ const About = () => {
           whileInView={{ opacity: 1, x: 0 }}
           initial={{ opacity: 0, x: 100 }}
           transition={{ duration: 0.5 }}
-          className="w-full lg:w-1/2 lg:p-8 order-2 lg:order-2 lg:mt-10"
+          className="w-full lg:w-1/2"
         >
-          <div className="flex items-center justify-center">
+          <div className="flex justify-center lg:justify-start">
             <p className="my-2 max-w-xl text-xl lg:text-2xl py-6 text-center lg:text-left">{ABOUT_TEXT}</p>
           </div>
-          <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-start gap-4 px-5 mt-4">
+          <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-4 px-5 mt-4">
             <a
               href="/assets/000AssanovResume.pdf"
               target="_blank"
