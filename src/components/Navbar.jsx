@@ -1,5 +1,4 @@
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const Navbar = () => {
   return (
@@ -11,8 +10,8 @@ const Navbar = () => {
           href="https://linkedin.com/in/islamassanov"
           target="_blank"
           rel="noopener noreferrer"
-        > 
-        <FaLinkedin />
+        >
+          <FaLinkedin />
         </a>
         <a
           href="https://github.com/islamborghini"

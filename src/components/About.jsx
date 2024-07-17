@@ -1,8 +1,7 @@
 import aboutImg from "/assets/Me.jpg";
 import { ABOUT_TEXT } from "../constants/index.js";
 import { motion } from "framer-motion";
-import { FaLinkedin } from "react-icons/fa";
-import { FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const About = () => {
   return (
@@ -11,7 +10,7 @@ const About = () => {
         About
         <span className="text-neutral-500"> Me</span>
       </h1>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap flex-col-reverse lg:flex-row">
         <motion.div
           whileInView={{ opacity: 1, x: 0 }}
           initial={{ opacity: 0, x: -100 }}
@@ -33,14 +32,14 @@ const About = () => {
           className="w-full lg:w-1/2"
         >
           <div className="flex justify-center lg:justify-start">
-            <p className="my-2 max-w-xl text-2xl py-6">{ABOUT_TEXT}</p>
+            <p className="my-2 max-w-xl text-2xl py-6 text-center lg:text-left">{ABOUT_TEXT}</p>
           </div>
-          <div className="flex items-center justify-between gap-4 px-5mt-4">
+          <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-4 px-5 mt-4">
             <a
               href="/assets/000AssanovResume.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+              className="inline-block px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 mb-4 lg:mb-0"
             >
               See My Resume
             </a>

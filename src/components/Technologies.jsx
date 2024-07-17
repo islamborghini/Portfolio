@@ -1,9 +1,7 @@
 import { RiReactjsLine } from "react-icons/ri";
-import { FaPython } from "react-icons/fa";
-import { FaNode } from "react-icons/fa";
+import { FaPython, FaNode } from "react-icons/fa";
 import { SiMysql } from "react-icons/si";
-import { DiDjango } from "react-icons/di";
-import { DiPostgresql } from "react-icons/di";
+import { DiDjango, DiPostgresql } from "react-icons/di";
 import { motion } from "framer-motion";
 // import { AiOutlineHtml5 } from "react-icons/ai";
 

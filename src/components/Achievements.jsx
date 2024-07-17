@@ -20,13 +20,13 @@ const Achievements = () => {
             whileInView={{ opacity: 1, y: 0 }}
             initial={{ opacity: 0, y: 100 }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className={`mb-8 flex w-full items-center justify-between ${
-              index % 2 === 0 ? "flex-row-reverse" : "flex-row"
+            className={`mb-8 flex flex-col lg:flex-row w-full items-center justify-between ${
+              index % 2 === 0 ? "lg:flex-row-reverse" : "lg:flex-row"
             }`}
           >
-            <div className="order-1 w-5/12"></div>
+            <div className="order-1 w-full lg:w-5/12 mb-4 lg:mb-0"></div>
             <div className="z-20 flex items-center order-1 bg-purple-800 shadow-xl w-8 h-8 rounded-full"></div>
-            <div className="order-1 w-5/12 bg-neutral-800 rounded-lg shadow-xl p-6">
+            <div className="order-1 w-full lg:w-5/12 bg-neutral-800 rounded-lg shadow-xl p-6">
               <h3 className="mb-2 font-bold text-white text-lg">{achievement.title}</h3>
               <p className="text-sm leading-snug tracking-wide text-neutral-300 text-opacity-100">
                 {achievement.description}
