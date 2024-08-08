@@ -15,6 +15,7 @@ export const EXPERIENCES = [
     company: "GlobalArt.AI",
     description: `Trained Stable Diffusion 2 model using Python, creating over 50 samples of generative artwork. Migrated the backend from Google Colab to Python on Google Cloud Platform, enhancing public system access. Coded online AR application using Three.js to improve user experience by increasing interactivity of artwork.`,
     technologies: ["Express.js", "Stable Diffusion", "Google Cloud Platform", "Three.js"],
+    logo: "/assets/globalartailogo.png",
   },
   {
     year: "Sep. 2023 – Apr. 2024",
@@ -22,6 +23,7 @@ export const EXPERIENCES = [
     company: "Gensler",
     description: `Designed a project to enhance self-awareness of office workers at Gensler HQ, largest architectural company. Developed an MVP using React, tested by 20 Gensler employees, achieving 4.9/5 satisfaction rate. Coordinated 8 meetings as point of contact with employees from $2 billion company.`,
     technologies: ["HTML", "CSS", "React"],
+    logo: "/assets/genslerlogo.png",
   },
  
 ];

@@ -29,12 +29,12 @@ const Experience = () => {
               transition={{ duration: 1 }}
               className="w-full max-w-xl lg:w-3/4"
             >
-              <h6 className="mb-2 font-semibold text-center lg:text-left">
-                {experience.role} -{" "}
-                <span className="text-sm text-purple-100">
-                  {experience.company}
+              <div className="mb-2 font-semibold text-center lg:text-left flex items-center justify-center lg:justify-start">
+                <img src={experience.logo} alt={`${experience.company} logo`} className="mr-4 h-12 w-12 lg:h-16 lg:w-28" />
+                <span className="text-sm text-purple-100 flex items-center">
+                  {experience.role} - {experience.company}
                 </span>
-              </h6>
+              </div>
               <p className="mb-4 text-neutral-400 text-center lg:text-left">{experience.description}</p>
               {experience.technologies.map((tech, index) => (
                 <span
