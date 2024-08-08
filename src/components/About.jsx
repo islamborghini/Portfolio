@@ -2,7 +2,7 @@ import aboutImg from "/assets/Me.jpg";
 import { ABOUT_TEXT } from "../constants/index.js";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
-RESUMEPATH = "0AssanovIslamCV.pdf"
+RESUMEPATH = "/assets/0AssanovIslamCV.pdf"
 const About = () => {
   return (
     <div className="border-neutral-900 pb-4 pt-4">
@@ -36,7 +36,7 @@ const About = () => {
           </div>
           <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-4 px-5 mt-4">
             <a
-              href= {RESUMEPATH}
+              href={RESUMEPATH}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 mb-4 lg:mb-0"
