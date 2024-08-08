@@ -3,7 +3,6 @@ import { FaPython, FaNode } from "react-icons/fa";
 import { SiMysql } from "react-icons/si";
 import { DiDjango, DiPostgresql } from "react-icons/di";
 import { motion } from "framer-motion";
-// import { AiOutlineHtml5 } from "react-icons/ai";
 
 const iconVariants = (duration) => ({
   initial: { y: -10 },
@@ -17,6 +16,7 @@ const iconVariants = (duration) => ({
     },
   },
 });
+
 const Technologies = () => {
   return (
     <div className="border-neutral-800 pb-24">
@@ -38,7 +38,7 @@ const Technologies = () => {
           variants={iconVariants(2.5)}
           initial="initial"
           animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
+          className="rounded-2xl border-4 border-indigo-600 p-4"
         >
           <DiDjango className="text-7xl text-green-700" />
         </motion.div>
@@ -46,15 +46,15 @@ const Technologies = () => {
           variants={iconVariants(3)}
           initial="initial"
           animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
+          className="rounded-2xl border-4 border-indigo-600 p-4"
         >
-          <RiReactjsLine className="text-7xl text-cyan-400" />
+          <RiReactjsLine className="text-7xl text-cyan-500" />
         </motion.div>
         <motion.div
           variants={iconVariants(5)}
           initial="initial"
           animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
+          className="rounded-2xl border-4 border-indigo-600 p-4"
         >
           <FaPython className="text-7xl text-yellow-400" />
         </motion.div>
@@ -62,7 +62,7 @@ const Technologies = () => {
           variants={iconVariants(3.5)}
           initial="initial"
           animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
+          className="rounded-2xl border-4 border-indigo-600 p-4"
         >
           <FaNode className="text-7xl text-green-500" />
         </motion.div>
@@ -70,28 +70,18 @@ const Technologies = () => {
           variants={iconVariants(6)}
           initial="initial"
           animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
+          className="rounded-2xl border-4 border-indigo-600 p-4"
         >
-          <DiPostgresql className="text-7xl text-white-500" />
+          <DiPostgresql className="text-7xl text-blue-500" />
         </motion.div>
         <motion.div
           variants={iconVariants(6)}
           initial="initial"
           animate="animate"
-          className="rounded-2xl border-4 border-neutral-800 p-4"
+          className="rounded-2xl border-4 border-indigo-600 p-4"
         >
-          <SiMysql className="text-7xl text-sky-700" />
+          <SiMysql className="text-7xl text-blue-700" />
         </motion.div>
-        {/* <div className="rounded-2xl border-4 border-neutral-800 p-4">
-          <AiOutlineHtml5
-            className="text-7xl"
-            style={{
-              background: "linear-gradient(to right, #E44D26, #F16529)",
-              WebkitBackgroundClip: "background",
-              WebkitTextFillColor: "transparent",
-            }}
-          />
-        </div> */}
       </motion.div>
     </div>
   );

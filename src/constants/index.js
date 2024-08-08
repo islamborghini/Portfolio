@@ -8,20 +8,26 @@ export const HERO_CONTENT = `I am an aspiring software engineer passionate about
 export const ABOUT_TEXT = HERO_CONTENT
 
 
+
 export const EXPERIENCES = [
   {
     year: "Feb. 2024 – Apr. 2024",
     role: "Software Engineering Intern",
     company: "GlobalArt.AI",
-    description: `Trained Stable Diffusion 2 model using Python, creating over 50 samples of generative artwork. Migrated the backend from Google Colab to Python on Google Cloud Platform, enhancing public system access. Coded online AR application using Three.js to improve user experience by increasing interactivity of artwork.`,
+    description: `Trained Stable Diffusion 2 model using Python, creating over 50 samples of generative artwork 
+• Migrated the backend from Google Colab to Google Cloud Platform, enhancing public system access
+• Coded online AR application using Three.js to improve user experience by increasing interactivity of artwork`,
     technologies: ["Express.js", "Stable Diffusion", "Google Cloud Platform", "Three.js"],
     logo: "/assets/globalartailogo.png",
+    
   },
   {
     year: "Sep. 2023 – Apr. 2024",
     role: "Student Researcher",
     company: "Gensler",
-    description: `Designed a project to enhance self-awareness of office workers at Gensler HQ, largest architectural company. Developed an MVP using React, tested by 20 Gensler employees, achieving 4.9/5 satisfaction rate. Coordinated 8 meetings as point of contact with employees from $2 billion company.`,
+    description: `• Designed a project to enhance self-awareness of office workers at Gensler HQ, impacting 5000+ employees
+• Developed an MVP React app, tested by 20 Gensler employees, achieving 4.9/5 satisfaction rate
+• Led a team of 5 in presenting a final project proposal to an audience of over 300+ attendees`,
     technologies: ["HTML", "CSS", "React"],
     logo: "/assets/genslerlogo.png",
   },
@@ -73,11 +79,13 @@ export const ACHIEVEMENTS = [
     year: "2023",
     title: "Calhacks 10.0 Winner",
     description: "Awarded for the best use of Zepp Health. Won $1000+ in prizes for the team. Largest collegiate hackathon in the world.",
+    photo: "/assets/calhacks.jpeg", // Add this line
   },
   {
     year: "2024",
     title: "UC Berkeley Hack For Impact Winner",
     description: "Awarded for the best solution for The Dancing Cat. 300+ paricipants.",
+    photo: "/assets/hackforimpact.jpeg", // Add this line
   },
   // Add more achievements as needed
 ];
