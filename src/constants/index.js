@@ -14,7 +14,7 @@ export const EXPERIENCES = [
     year: "Feb. 2024 – Apr. 2024",
     role: "Software Engineering Intern",
     company: "GlobalArt.AI",
-    description: `Trained Stable Diffusion 2 model using Python, creating over 50 samples of generative artwork 
+    description: `• Trained Stable Diffusion 2 model using Python, creating over 50 samples of generative artwork 
 • Migrated the backend from Google Colab to Google Cloud Platform, enhancing public system access
 • Coded online AR application using Three.js to improve user experience by increasing interactivity of artwork`,
     technologies: ["Express.js", "Stable Diffusion", "Google Cloud Platform", "Three.js"],
