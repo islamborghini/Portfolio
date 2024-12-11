@@ -12,7 +12,7 @@ export const ABOUT_TEXT = HERO_CONTENT
 export const EXPERIENCES = [
   {
     year: "Feb. 2024 – Apr. 2024",
-    role: "Software Engineering Intern",
+    role: "Machine Learning Fellow",
     company: "GlobalArt.AI",
     description: `• Trained Stable Diffusion 2 model using Python, creating over 50 samples of generative artwork 
 • Migrated the backend from Google Colab to Google Cloud Platform, enhancing public system access
