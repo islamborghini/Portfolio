@@ -91,7 +91,7 @@ export const ACHIEVEMENTS = [
 ];
 
 export const CONTACT = {
-  address: "16 Turk St., San Francisco, California, CA 94102 ",
+  address: "San Francisco, California ",
   phoneNo: "+1 628 444 9011 ",
   email: "islam@uni.minerva.edu",
 };
