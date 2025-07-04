@@ -1,8 +1,14 @@
 import { CONTACT } from "../constants";
 import { motion } from "framer-motion";
+import { FaLinkedin, FaGithub, FaEnvelope, FaXTwitter} from "react-icons/fa6";
 
+<i class="fa-brands fa-x-twitter"></i>
 const Contact = () => {
-  return (
+  return (          
+    <>
+  
+  
+    
     <div className="border-b border-neutral-900 pb-20">
       <motion.h1
         whileInView={{ opacity: 1, y: 0 }}
@@ -12,6 +18,42 @@ const Contact = () => {
       >
         Get in Touch
       </motion.h1>
+      <div className="flex items-center justify-center gap-8 px-10 text-6xl mb-10">
+              <a
+                href="https://linkedin.com/in/islamassanov"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-transform duration-300"
+              >
+                <FaLinkedin />
+              </a>
+              <a
+                href="https://github.com/islamborghini"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-transform duration-300"
+              >
+                <FaGithub />
+              </a>
+              <a 
+                href="mailto:islam@uni.minerva.edu"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-transform duration-300"
+              >
+                <FaEnvelope />
+              </a>
+              <a 
+                href="https://x.com/issa___777"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:scale-110 transition-transform duration-300"
+              >
+                <FaXTwitter />
+
+              </a>
+              
+            </div>
       <div className="text-center tracking-tighter">
         <motion.p
           whileInView={{ opacity: 1, x: 0 }}
@@ -29,11 +71,9 @@ const Contact = () => {
         >
           {CONTACT.phoneNo}
         </motion.p>
-        <a href="mailto:islam@uni.minerva.edu" className="border-b">
-          {CONTACT.email}
-        </a>
       </div>
     </div>
+    </>
   );
 };
 

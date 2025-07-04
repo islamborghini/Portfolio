@@ -1,7 +1,6 @@
 import aboutImg from "/assets/Me.jpg";
 import { ABOUT_TEXT } from "../constants/index.js";
 import { motion } from "framer-motion";
-import { FaLinkedin, FaGithub } from "react-icons/fa";
 
 const About = () => {
   return (
@@ -43,22 +42,6 @@ const About = () => {
             >
               See My Resume
             </a>
-            <div className="flex items-center gap-4 px-10 text-4xl">
-              <a
-                href="https://linkedin.com/in/islamassanov"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaLinkedin />
-              </a>
-              <a
-                href="https://github.com/islamborghini"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <FaGithub />
-              </a>
-            </div>
           </div>
         </motion.div>
       </div>

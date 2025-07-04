@@ -3,7 +3,7 @@ import project2 from "/assets/projects/project-2.png";
 import project3 from "/assets/projects/project-3.png";
 import project4 from "/assets/projects/project-4.png";
 
-export const HERO_CONTENT = `I am an aspiring software engineer passionate about learning new technologies. With 5 years in programming, I have honed my skills in back-end technologies such as Django, Node.js, Express.js, MySQL, and PostgreSQL as well as front-end technologies such as React, HTML+CSS, Tailwind CSS. My goal is to constantly improve to serve the community of programmers and beyond.`;
+export const HERO_CONTENT = `I am a software engineer passionate about learning new technologies. With 7 years in programming, I have honed my skills in full-stack web development. My goal is to constantly improve to serve the humanity via doing what I am passionate about.`;
 
 export const ABOUT_TEXT = HERO_CONTENT
 
