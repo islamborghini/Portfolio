@@ -2,19 +2,14 @@ import { CONTACT } from "../constants";
 import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub, FaEnvelope, FaXTwitter} from "react-icons/fa6";
 
-<i class="fa-brands fa-x-twitter"></i>
 const Contact = () => {
   return (          
-    <>
-  
-  
-    
-    <div className="border-b border-neutral-900 pb-20">
+    <div className="py-10">
       <motion.h1
-        whileInView={{ opacity: 1, y: 0 }}
-        initial={{ opacity: 0, y: -100 }}
-        transition={{ duration: 0.5 }}
-        className="my-10 text-center text-4xl"
+        initial={{ opacity: 0, y: -50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="mb-12 text-center text-4xl"
       >
         Get in Touch
       </motion.h1>
@@ -73,7 +68,6 @@ const Contact = () => {
         </motion.p>
       </div>
     </div>
-    </>
   );
 };
 
