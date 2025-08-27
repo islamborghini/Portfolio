@@ -49,7 +49,6 @@ for 100+ users while reducing response latency by 40%`,
 export const PROJECTS = [
   {
     title: "Codio",
-    image: project1,
     description:
       "Full-stack real-time chat and video calling application for people who are preparing for coding interviews",
     technologies: ["MongoDB", "Express", "React", "Node.js", "JWT", "Stream API",],
@@ -57,7 +56,7 @@ export const PROJECTS = [
   },
   {
     title: "LiveCaps",
-    image: project6,
+    image: project5,
     description:
       "Real time smart speech translation and transcribtion service",
     technologies: ["Next.js", "Typescript", "Supabase", "WebSocket", "Deepgram"],
