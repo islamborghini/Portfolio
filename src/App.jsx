@@ -7,6 +7,7 @@ import Hero from "./components/Hero";
 import Navbar from "./components/Navbar";
 import Projects from "./components/Projects";
 import Technologies from "./components/Technologies";
+import Blog from "./components/Blog";
 import Sidebar from "./components/Sidebar";
 import './index.css';
 
@@ -27,6 +28,8 @@ const App = () => {
         return <Technologies />;
       case 'projects':
         return <Projects />;
+      case 'blog':
+        return <Blog />;
       case 'contact':
         return <Contact />;
       default:

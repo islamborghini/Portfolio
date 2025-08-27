@@ -23,3 +23,32 @@ html{
 .animate-fade-in {
   animation: fadeIn 0.3s ease-in-out;
 }
+
+/* Blog content styles */
+.blog-content h3 {
+  color: #22d3ee;
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 2rem 0 1rem 0;
+}
+
+.blog-content p {
+  margin: 1rem 0;
+  line-height: 1.7;
+  color: #d1d5db;
+}
+
+.blog-content ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.blog-content li {
+  margin: 0.5rem 0;
+  color: #d1d5db;
+}
+
+.blog-content strong {
+  color: #22d3ee;
+  font-weight: 600;
+}

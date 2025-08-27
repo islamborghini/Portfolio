@@ -9,7 +9,8 @@ import {
   FaEnvelope,
   FaBars,
   FaTimes,
-  FaGripVertical
+  FaGripVertical,
+  FaBlog
 } from "react-icons/fa";
 import { useState, useRef, useEffect, useCallback } from "react";
 
@@ -74,6 +75,7 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
     { id: 'achievements', label: 'Achievements', icon: FaTrophy },
     { id: 'technologies', label: 'Skills', icon: FaCode },
     { id: 'projects', label: 'Projects', icon: FaProjectDiagram },
+    { id: 'blog', label: 'Blog', icon: FaBlog },
     { id: 'contact', label: 'Contact', icon: FaEnvelope },
   ];
 
