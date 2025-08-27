@@ -23,7 +23,7 @@ solution to 70,000+ industry professionals at Taiwan HealthCare+ Expo`,
   },
   {
     year: "Feb. 2024 – Apr. 2024",
-    role: "Machine Learning Fellow",
+    role: "Machine Learning Intern",
     company: "GlobalArt.AI",
     description: `• Fine-tuned Stable Diffusion 2 model using Python and PyTorch, generating 50+ high-quality artwork samples
 with custom training pipeline
