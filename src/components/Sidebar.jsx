@@ -8,12 +8,64 @@ import {
   FaProjectDiagram, 
   FaEnvelope,
   FaBars,
-  FaTimes
+  FaTimes,
+  FaGripVertical
 } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 
 const Sidebar = ({ activeSection, setActiveSection }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [sidebarWidth, setSidebarWidth] = useState(256);
+  const [isResizing, setIsResizing] = useState(false);
+  const sidebarRef = useRef(null);
+  const startXRef = useRef(0);
+  const startWidthRef = useRef(256);
+
+  const minWidth = 64;
+  const maxWidth = 400;
+
+  const handleMouseDown = useCallback((e) => {
+    setIsResizing(true);
+    startXRef.current = e.clientX;
+    startWidthRef.current = sidebarWidth;
+    e.preventDefault();
+  }, [sidebarWidth]);
+
+  const handleMouseMove = useCallback((e) => {
+    if (!isResizing) return;
+    
+    const deltaX = e.clientX - startXRef.current;
+    const newWidth = Math.max(minWidth, Math.min(maxWidth, startWidthRef.current + deltaX));
+    
+    setSidebarWidth(newWidth);
+    
+    // Auto-collapse/expand based on width (with debouncing)
+    if (newWidth < 150 && !isCollapsed) {
+      setIsCollapsed(true);
+    } else if (newWidth >= 150 && isCollapsed) {
+      setIsCollapsed(false);
+    }
+  }, [isResizing, isCollapsed]);
+
+  const handleMouseUp = useCallback(() => {
+    setIsResizing(false);
+  }, []);
+
+  useEffect(() => {
+    if (isResizing) {
+      document.addEventListener('mousemove', handleMouseMove);
+      document.addEventListener('mouseup', handleMouseUp);
+      document.body.style.cursor = 'ew-resize';
+      document.body.style.userSelect = 'none';
+    }
+
+    return () => {
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+      document.body.style.cursor = '';
+      document.body.style.userSelect = '';
+    };
+  }, [isResizing, handleMouseMove, handleMouseUp]);
 
   const menuItems = [
     { id: 'hero', label: 'Home', icon: FaHome },
@@ -26,17 +78,20 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
   ];
 
   return (
-    <motion.div
-      initial={{ x: -250 }}
-      animate={{ x: 0 }}
-      transition={{ duration: 0.5 }}
-      className={`${
-        isCollapsed ? 'w-16' : 'w-64'
-      } bg-gradient-to-b from-gray-900 to-gray-800 border-r border-gray-700 flex flex-col transition-all duration-300 relative`}
+    <div
+      ref={sidebarRef}
+      style={{ width: `${sidebarWidth}px` }}
+      className={`bg-gradient-to-b from-gray-900 to-gray-800 border-r border-gray-700 flex flex-col relative ${
+        isResizing ? 'select-none transition-none' : 'transition-all duration-200'
+      }`}
     >
       {/* Toggle button */}
       <button
-        onClick={() => setIsCollapsed(!isCollapsed)}
+        onClick={() => {
+          const newCollapsed = !isCollapsed;
+          setIsCollapsed(newCollapsed);
+          setSidebarWidth(newCollapsed ? minWidth : 256);
+        }}
         className="absolute -right-3 top-6 bg-gray-800 border border-gray-600 rounded-full p-2 text-gray-300 hover:text-white hover:bg-gray-700 transition-colors z-10"
       >
         {isCollapsed ? <FaBars size={14} /> : <FaTimes size={14} />}
@@ -44,20 +99,16 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
 
       {/* Logo/Title area */}
       <div className="p-6 border-b border-gray-700">
-        {!isCollapsed && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-          >
+        {!isCollapsed && sidebarWidth >= 150 && (
+          <div className="animate-fade-in">
             <h2 className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
               Islam Assanov
             </h2>
             <p className="text-sm text-gray-400 mt-1">Full Stack Developer</p>
-          </motion.div>
+          </div>
         )}
-        {isCollapsed && (
-          <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center">
+        {(isCollapsed || sidebarWidth < 150) && (
+          <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center mx-auto">
             <span className="text-white font-bold text-sm">IA</span>
           </div>
         )}
@@ -72,33 +123,28 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
             
             return (
               <li key={item.id}>
-                <motion.button
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                <button
                   onClick={() => setActiveSection(item.id)}
                   className={`w-full flex items-center px-6 py-3 text-left transition-all duration-200 group ${
                     isActive
                       ? 'bg-gradient-to-r from-cyan-500 to-purple-500 text-white shadow-lg'
                       : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-                  } ${isCollapsed ? 'justify-center px-3' : ''}`}
+                  } ${isCollapsed || sidebarWidth < 150 ? 'justify-center px-3' : ''}`}
                 >
                   <IconComponent 
-                    className={`${isCollapsed ? 'text-xl' : 'text-lg mr-3'} ${
+                    className={`${isCollapsed || sidebarWidth < 150 ? 'text-xl' : 'text-lg mr-3'} ${
                       isActive ? 'text-white' : 'group-hover:text-cyan-400'
                     }`} 
                   />
-                  {!isCollapsed && (
+                  {(!isCollapsed && sidebarWidth >= 150) && (
                     <span className="font-medium">{item.label}</span>
                   )}
                   
                   {/* Active indicator */}
                   {isActive && (
-                    <motion.div
-                      layoutId="activeIndicator"
-                      className="absolute right-0 w-1 h-8 bg-white rounded-l-full"
-                    />
+                    <div className="absolute right-0 w-1 h-8 bg-white rounded-l-full" />
                   )}
-                </motion.button>
+                </button>
               </li>
             );
           })}
@@ -107,24 +153,31 @@ const Sidebar = ({ activeSection, setActiveSection }) => {
 
       {/* Footer */}
       <div className="p-6 border-t border-gray-700">
-        {!isCollapsed && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
-            className="text-xs text-gray-400 text-center"
-          >
+        {(!isCollapsed && sidebarWidth >= 150) && (
+          <div className="text-xs text-gray-400 text-center animate-fade-in">
             <p>© 2025 Islam Assanov</p>
             <p className="mt-1">Portfolio</p>
-          </motion.div>
+          </div>
         )}
-        {isCollapsed && (
+        {(isCollapsed || sidebarWidth < 150) && (
           <div className="text-center">
             <div className="w-2 h-2 bg-cyan-400 rounded-full mx-auto"></div>
           </div>
         )}
       </div>
-    </motion.div>
+
+      {/* Resize Handle */}
+      <div
+        className={`absolute top-0 right-0 w-1 h-full bg-transparent hover:bg-cyan-400 transition-colors duration-200 cursor-ew-resize group ${
+          isResizing ? 'bg-cyan-400' : ''
+        }`}
+        onMouseDown={handleMouseDown}
+      >
+        <div className="absolute top-1/2 -translate-y-1/2 -right-1 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
+          <FaGripVertical className="text-cyan-400 text-xs" />
+        </div>
+      </div>
+    </div>
   );
 };
 

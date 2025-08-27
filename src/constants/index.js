@@ -2,7 +2,7 @@ import project1 from "/assets/projects/project-1.png";
 import project2 from "/assets/projects/project-2.png";
 import project3 from "/assets/projects/project-3.png";
 import project4 from "/assets/projects/project-4.png";
-
+import project5 from "/assets/projects/project-5.png";
 export const HERO_CONTENT = `I am a software engineer passionate about learning new technologies. With 7 years in programming, I have honed my skills in full-stack web development. My goal is to constantly improve to serve the humanity via doing what I am passionate about.`;
 
 export const ABOUT_TEXT = HERO_CONTENT
@@ -11,13 +11,25 @@ export const ABOUT_TEXT = HERO_CONTENT
 
 export const EXPERIENCES = [
   {
+    year: "Sep. 2024 - Dec. 2024",
+    role: "Software Engineer Intern",
+    company: "Jubo Health",
+    description: `• Engineered prompt-based search system using Intel OpenVINO and FastAPI to query 40,000+ patient records,
+implementing robust APIs and system integration, reducing decision-making time by 30 minutes per case
+• Utilized agile development practices to deliver enterprise-level healthcare solutions, presenting technical
+solution to 70,000+ industry professionals at Taiwan HealthCare+ Expo`,
+    technologies: ["Intel OpenVINO", "FastAPI", "React", "MongoDB"],
+    logo: "/assets/jubo.jpeg",
+  },
+  {
     year: "Feb. 2024 – Apr. 2024",
     role: "Machine Learning Fellow",
     company: "GlobalArt.AI",
-    description: `• Trained Stable Diffusion 2 model using Python, creating over 50 samples of generative artwork 
-• Migrated the backend from Google Colab to Google Cloud Platform, enhancing public system access
-• Coded online AR application using Three.js to improve user experience by increasing interactivity of artwork`,
-    technologies: ["Express.js", "Stable Diffusion", "Google Cloud Platform", "Three.js"],
+    description: `• Fine-tuned Stable Diffusion 2 model using Python and PyTorch, generating 50+ high-quality artwork samples
+with custom training pipeline
+• Migrated backend infrastructure from Google Colab to Google Cloud Platform, improving system scalability
+for 100+ users while reducing response latency by 40%`,
+    technologies: ["Google Cloud Platform", "Python", "PyTorch"],
     logo: "/assets/globalartailogo.png",
     
   },
@@ -35,6 +47,22 @@ export const EXPERIENCES = [
 ];
 
 export const PROJECTS = [
+  {
+    title: "Codio",
+    image: project1,
+    description:
+      "Full-stack real-time chat and video calling application for people who are preparing for coding interviews",
+    technologies: ["MongoDB", "Express", "React", "Node.js", "JWT", "Stream API",],
+    githubLink: "https://github.com/islamborghini/codio"
+  },
+  {
+    title: "LiveCaps",
+    image: project6,
+    description:
+      "Real time smart speech translation and transcribtion service",
+    technologies: ["Next.js", "Typescript", "Supabase", "WebSocket", "Deepgram"],
+    githubLink: "https://github.com/islamborghini/LiveCaps"
+  },
   {
     title: "Chef.in",
     image: project1,
@@ -87,6 +115,12 @@ export const ACHIEVEMENTS = [
     description: "Awarded for the best solution for The Dancing Cat. 300+ paricipants.",
     photo: "/assets/hackforimpact.jpeg", // Add this line
   },
+  {
+    year: "2025",
+    title: "Seoul AI Hackathon Winner",
+    description: "Awarded for creating the best platform for K-Biox (largest Korean researcher community). 300+ participants.",
+    photo: "/assets/seoulhackathon.jpeg", // Add this line
+  }
   // Add more achievements as needed
 ];
 
