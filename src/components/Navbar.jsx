@@ -1,42 +1,73 @@
+import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
-import { FaLinkedin, FaGithub, FaEnvelope, FaXTwitter} from "react-icons/fa6";
+const navItems = [
+  { name: "About", id: "about" },
+  { name: "Experience", id: "experience" },
+  { name: "Skills", id: "technologies" },
+  { name: "Projects", id: "projects" },
+  { name: "Blog", id: "blog" },
+  { name: "Contact", id: "contact" },
+];
+
 const Navbar = () => {
+  const [mobileOpen, setMobileOpen] = useState(false);
+
+  const scrollTo = (id) => {
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth" });
+    setMobileOpen(false);
+  };
+
   return (
-    <nav className="flex items-center justify-center py-6">
-      <div className="flex flex-shrink-0 items-center">
+    <header className="sticky top-0 z-50 border-b border-neutral-800 bg-neutral-950/80 backdrop-blur-sm">
+      <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
+        <button
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+          className="text-lg font-medium text-neutral-100 hover:text-white transition-colors"
+        >
+          Islam Assanov
+        </button>
+
+        {/* Desktop nav */}
+        <nav className="hidden md:flex items-center gap-6 text-base">
+          {navItems.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollTo(item.id)}
+              className="text-neutral-400 hover:text-neutral-100 capitalize transition-colors"
+            >
+              {item.name}
+            </button>
+          ))}
+        </nav>
+
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setMobileOpen(!mobileOpen)}
+          className="md:hidden text-neutral-400 hover:text-white"
+        >
+          {mobileOpen ? <FaTimes size={18} /> : <FaBars size={18} />}
+        </button>
       </div>
-      <div className="mx-8 flex items-center justify-center gap-4 text-2xl">
-        <a
-          href="https://linkedin.com/in/islamassanov"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaLinkedin />
-        </a>
-        <a
-          href="https://github.com/islamborghini"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaGithub />
-        </a>
-        <a
-          href="mailto:islam@uni.minerva.edu"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <FaEnvelope />
-        </a>
-        <a 
-          href="https://x.com/issa___777"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:scale-110 transition-transform duration-300"
-        >
-        <FaXTwitter/>
-        </a>
-      </div>
-    </nav>
+
+      {/* Mobile menu */}
+      {mobileOpen && (
+        <div className="md:hidden border-t border-neutral-800 bg-neutral-950/95 backdrop-blur-sm">
+          <nav className="mx-auto max-w-3xl px-4 py-3 flex flex-col gap-2">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollTo(item.id)}
+                className="text-left text-base text-neutral-400 hover:text-neutral-100 py-1.5 transition-colors"
+              >
+                {item.name}
+              </button>
+            ))}
+          </nav>
+        </div>
+      )}
+    </header>
   );
 };
 

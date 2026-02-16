@@ -1,145 +1,84 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
 import { BLOG_POSTS } from "../constants";
-import { FaCalendar, FaClock, FaTag, FaArrowLeft } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 
 const Blog = () => {
   const [selectedPost, setSelectedPost] = useState(null);
 
-  const BlogList = () => (
-    <div className="py-10">
-      <motion.h1
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="mb-12 text-center text-4xl"
-      >
-        My <span className="text-cyan-400">Blog</span>
-      </motion.h1>
-      
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-center text-gray-400 mb-12 max-w-2xl mx-auto"
-      >
-        Thoughts, insights, and experiences from my journey in software development, 
-        AI research, and building innovative solutions.
-      </motion.p>
+  if (!BLOG_POSTS || BLOG_POSTS.length === 0) {
+    return (
+      <section id="blog">
+        <h2 className="text-3xl font-medium text-neutral-100 mb-6">Blog</h2>
+        <p className="text-base text-neutral-500">No posts yet.</p>
+      </section>
+    );
+  }
 
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-        {BLOG_POSTS.map((post, index) => (
-          <motion.article
+  if (selectedPost) {
+    return (
+      <section id="blog">
+        <button
+          onClick={() => setSelectedPost(null)}
+          className="flex items-center gap-2 text-sm text-neutral-400 hover:text-neutral-100 transition-colors mb-6"
+        >
+          <FaArrowLeft className="text-xs" />
+          Back to Blog
+        </button>
+
+        <article>
+          <div className="flex items-center gap-3 text-sm text-neutral-500 mb-4">
+            <span>{new Date(selectedPost.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+            <span>&bull;</span>
+            <span>{selectedPost.readTime}</span>
+          </div>
+          <h1 className="text-3xl font-medium text-neutral-100 mb-4">{selectedPost.title}</h1>
+          <div className="flex flex-wrap gap-1.5 mb-6">
+            {selectedPost.tags.map((tag) => (
+              <span key={tag} className="text-sm px-2.5 py-0.5 rounded-full border border-neutral-700 text-neutral-400">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div
+            className="text-base text-neutral-400 leading-relaxed blog-content"
+            dangerouslySetInnerHTML={{ __html: selectedPost.content }}
+          />
+        </article>
+      </section>
+    );
+  }
+
+  return (
+    <section id="blog">
+      <h2 className="text-3xl font-medium text-neutral-100 mb-6">Blog</h2>
+      <div className="flex flex-col gap-4">
+        {BLOG_POSTS.map((post) => (
+          <article
             key={post.id}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-gradient-to-br from-gray-900 to-gray-800 rounded-lg border border-gray-700 p-6 hover:border-cyan-400 transition-colors duration-300 cursor-pointer group"
             onClick={() => setSelectedPost(post)}
+            className="rounded-lg border border-neutral-800 p-5 hover:border-neutral-700 transition-colors cursor-pointer group"
           >
-            <div className="flex items-center gap-4 text-sm text-gray-400 mb-3">
-              <span className="flex items-center gap-1">
-                <FaCalendar className="text-xs" />
-                {new Date(post.date).toLocaleDateString('en-US', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric'
-                })}
-              </span>
-              <span className="flex items-center gap-1">
-                <FaClock className="text-xs" />
-                {post.readTime}
-              </span>
+            <div className="flex items-center gap-3 text-sm text-neutral-500 mb-2">
+              <span>{new Date(post.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+              <span>&bull;</span>
+              <span>{post.readTime}</span>
             </div>
-
-            <h2 className="text-xl font-bold mb-3 group-hover:text-cyan-400 transition-colors duration-300">
+            <h3 className="text-base font-medium text-neutral-100 mb-1 group-hover:text-white">
               {post.title}
-            </h2>
-
-            <p className="text-gray-300 mb-4 leading-relaxed">
-              {post.excerpt}
-            </p>
-
-            <div className="flex flex-wrap gap-2 mb-4">
+            </h3>
+            <p className="text-sm text-neutral-400 leading-relaxed mb-3">{post.excerpt}</p>
+            <div className="flex flex-wrap gap-1.5">
               {post.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-700 text-cyan-400 rounded-full text-xs"
-                >
-                  <FaTag className="text-xs" />
+                <span key={tag} className="text-sm px-2.5 py-0.5 rounded-full border border-neutral-700 text-neutral-400">
                   {tag}
                 </span>
               ))}
             </div>
-
-            <div className="text-cyan-400 text-sm font-medium group-hover:underline">
-              Read more →
-            </div>
-          </motion.article>
+          </article>
         ))}
       </div>
-    </div>
+    </section>
   );
-
-  const BlogPost = ({ post }) => (
-    <div className="py-10 max-w-4xl mx-auto">
-      <motion.button
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        transition={{ duration: 0.5 }}
-        onClick={() => setSelectedPost(null)}
-        className="flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors duration-300 mb-8"
-      >
-        <FaArrowLeft />
-        Back to Blog
-      </motion.button>
-
-      <motion.article
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="prose prose-invert prose-lg max-w-none"
-      >
-        <div className="flex items-center gap-4 text-sm text-gray-400 mb-6">
-          <span className="flex items-center gap-1">
-            <FaCalendar className="text-xs" />
-            {new Date(post.date).toLocaleDateString('en-US', {
-              year: 'numeric',
-              month: 'long',
-              day: 'numeric'
-            })}
-          </span>
-          <span className="flex items-center gap-1">
-            <FaClock className="text-xs" />
-            {post.readTime}
-          </span>
-        </div>
-
-        <h1 className="text-4xl font-bold mb-6 bg-gradient-to-r from-cyan-400 to-purple-500 bg-clip-text text-transparent">
-          {post.title}
-        </h1>
-
-        <div className="flex flex-wrap gap-2 mb-8">
-          {post.tags.map((tag) => (
-            <span
-              key={tag}
-              className="inline-flex items-center gap-1 px-3 py-1 bg-gray-700 text-cyan-400 rounded-full text-sm"
-            >
-              <FaTag className="text-xs" />
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        <div 
-          className="text-gray-300 leading-relaxed blog-content"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
-      </motion.article>
-    </div>
-  );
-
-  return selectedPost ? <BlogPost post={selectedPost} /> : <BlogList />;
 };
 
 export default Blog;

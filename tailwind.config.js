@@ -5,12 +5,7 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {
-      colors: {
-        customOrange: '#E44D26',
-        customOrangeLight: '#F16529',
-      },
-    },
+    extend: {},
   },
   plugins: [],
 }

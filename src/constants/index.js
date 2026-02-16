@@ -123,24 +123,10 @@ export const ACHIEVEMENTS = [
   // Add more achievements as needed
 ];
 
-export const BLOG_POSTS = [
-  {
-    id: 1,
-    title: "Will AI Replace Software Engineers?",
-    excerpt: "",
-    content: `
-      <p>It is nice to see the advancements in AI. A couple years ago everyone just learned what ChatGPT was and it was a big deal. It could not do much, but the fact that it can write like a human and code on any level was exciting. Since then, there was a rumour spread that AI will replace software engineers.</p>
-      <p>Now, we have many models that became part of the routine for any developer in the world. Vibe coding became a new word in a dictionary and coding without Cursor, Lovable, or Bolt is unusual. However, recently, people are starting to raise a question on how far can you advance in product development without knowledge of coding. In experiences of most of the people who create a product, it is impossible to build a scalable and secure product with tapping "TAB" every time.</p>
-      <p>Because of these, I believe that developers with a knowledge in system design will always be needed. We are waiting for further AI advancements, but I believe that AI will not replace developers, but rather help them to be more productive and focus on the important parts of the product development in the near future.</p>
-    `,
-    date: "2025-08-27",
-    tags: ["AI", "Software Development", "Productivity"],
-    readTime: "2 min read"
-  },
-];
-
 export const CONTACT = {
   address: "San Francisco, California ",
   phoneNo: "+1 628 444 9011 ",
   email: "islam@uni.minerva.edu",
 };
+
+export const BLOG_POSTS = [];

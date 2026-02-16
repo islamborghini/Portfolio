@@ -1,54 +1,45 @@
 import { EXPERIENCES } from "../constants";
-import { motion } from "framer-motion";
 
 const Experience = () => {
   return (
-    <div className="py-10">
-      <motion.h1
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="mb-12 text-center text-4xl"
-      >
-        Experience
-      </motion.h1>
-      <div>
-        {EXPERIENCES.map((experience, index) => (
-          <div key={index} className="mb-12 flex flex-wrap lg:justify-center">
-            <motion.div
-              whileInView={{ opacity: 1, x: 0 }}
-              initial={{ opacity: 0, x: -100 }}
-              transition={{ duration: 1 }}
-              className="w-full lg:w-1/4"
-            >
-              <p className="mt-3 text-sm text-neutral-400 text-center lg:text-left">{experience.year}</p>
-            </motion.div>
-            <motion.div
-              whileInView={{ opacity: 1, x: 0 }}
-              initial={{ opacity: 0, x: 100 }}
-              transition={{ duration: 1 }}
-              className="w-full max-w-xl lg:w-3/4"
-            >
-              <div className="mb-2 font-semibold text-center lg:text-left flex items-center justify-center lg:justify-start">
-                <img src={experience.logo} alt={`${experience.company} logo`} className="mr-4 h-11 w-18 lg:h-11 lg:w-18" />
-                <span className="text-sm text-purple-100 flex items-center">
-                  {experience.role}
-                  </span>
-                  </div>
-              <p className="mb-4 text-neutral-400 text-center lg:text-left">{experience.description}</p>
-              {experience.technologies.map((tech, index) => (
-                <span
-                  key={index}
-                  className="mr-2 mt-4 rounded bg-neutral-900 px-2 py-1 text-sm font-medium bg-transparent text-purple-800"
-                >
-                  {tech}
-                </span>
-              ))}
-            </motion.div>
+    <section id="experience">
+      <h2 className="text-3xl font-medium text-neutral-100 mb-6">Experience</h2>
+      <div className="flex flex-col gap-6">
+        {EXPERIENCES.map((exp, index) => (
+          <div
+            key={index}
+            className="rounded-lg border border-neutral-800 p-5 hover:border-neutral-700 transition-colors"
+          >
+            <div className="flex items-start gap-4">
+              <img
+                src={exp.logo}
+                alt={exp.company}
+                className="w-12 h-12 rounded object-contain flex-shrink-0 mt-0.5"
+              />
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1 mb-2">
+                  <h3 className="text-base font-medium text-neutral-100">{exp.role}</h3>
+                  <span className="text-sm text-neutral-500">{exp.year}</span>
+                </div>
+                <p className="text-sm text-neutral-400 whitespace-pre-line leading-relaxed mb-3">
+                  {exp.description}
+                </p>
+                <div className="flex flex-wrap gap-1.5">
+                  {exp.technologies.map((tech, i) => (
+                    <span
+                      key={i}
+                      className="text-sm px-2.5 py-0.5 rounded-full border border-neutral-700 text-neutral-400"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

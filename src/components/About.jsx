@@ -1,56 +1,33 @@
 import aboutImg from "/assets/Me.jpg";
 import { ABOUT_TEXT } from "../constants/index.js";
-import { motion } from "framer-motion";
 
 const About = () => {
   return (
-    <div className="py-10">
-      <motion.h1
-        initial={{ opacity: 0, y: -50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="mb-12 text-center text-4xl"
-      >
-        About
-        <span className="text-neutral-500"> Me</span>
-      </motion.h1>
-      <div className="flex flex-wrap flex-col lg:flex-row">
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="w-full lg:w-1/2 lg:p-8"
-        >
-          <div className="flex items-center justify-center">
-            <img
-              className="rounded-2xl w-64 h-64 lg:w-96 lg:h-96 object-cover"
-              src={aboutImg}
-              alt="about"
-            />
-          </div>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="w-full lg:w-1/2"
-        >
-          <div className="flex justify-center lg:justify-start">
-            <p className="my-2 max-w-xl text-xl lg:text-2xl py-6 text-center lg:text-left">{ABOUT_TEXT}</p>
-          </div>
-          <div className="flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-4 px-5 mt-4">
+    <section id="about">
+      <h2 className="text-3xl font-medium text-neutral-100 mb-6">About</h2>
+      <div className="flex flex-col sm:flex-row gap-6">
+        <img
+          className="rounded-lg w-36 h-36 object-cover flex-shrink-0"
+          src={aboutImg}
+          alt="Islam Assanov"
+        />
+        <div className="flex flex-col gap-4">
+          <p className="text-neutral-400 leading-relaxed text-base">
+            {ABOUT_TEXT}
+          </p>
+          <div>
             <a
               href="/assets/Assanov_Resume_.pdf"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-2 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 mb-4 lg:mb-0"
+              className="inline-flex items-center gap-1.5 text-base text-neutral-100 hover:text-white border border-neutral-700 rounded-md px-4 py-2 hover:border-neutral-500 transition-colors"
             >
-              See My Resume
+              Resume &rarr;
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 

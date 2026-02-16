@@ -1,54 +1,32 @@
 import { HERO_CONTENT } from "../constants/index.js";
-import { motion } from "framer-motion";
-
-const container = (delay) => ({
-  hidden: { x: -100, opacity: 0 },
-  visible: {
-    x: 0,
-    opacity: 1,
-    transition: { duration: 0.5, delay: delay },
-  },
-});
+import { FaLinkedin, FaGithub, FaEnvelope, FaXTwitter } from "react-icons/fa6";
 
 const Hero = () => {
   return (
-    <div className="flex items-center justify-center min-h-full py-20">
-      <div className="text-center">
-        <motion.span
-          variants={container(0.5)}
-          initial="hidden"
-          animate="visible"
-          className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent"
-        >
-          Hello, I am
-        </motion.span>
-        <motion.h1
-          variants={container(0)}
-          initial="hidden"
-          animate="visible"
-          className="pb-8 text-6xl font-bold tracking-tight lg:text-8xl mt-4"
-        >
+    <section id="hero" className="pt-12">
+      <div className="flex flex-col gap-5">
+        <h1 className="text-5xl font-medium text-neutral-100 tracking-tight">
           Islam Assanov
-        </motion.h1>
-        <motion.span
-          variants={container(0.5)}
-          initial="hidden"
-          animate="visible"
-          className="bg-gradient-to-r from-pink-300 via-slate-500 to-purple-500 bg-clip-text text-3xl tracking-tight text-transparent"
-        >
-          Full Stack Developer
-        </motion.span>
-        <motion.p
-          variants={container(1)}
-          initial="hidden"
-          animate="visible"
-          className="mt-8 text-xl font-light tracking-tighter text-gray-300 max-w-2xl mx-auto"
-        >
-          Passionate about creating innovative solutions and building scalable applications. 
-          Welcome to my digital portfolio where creativity meets functionality.
-        </motion.p>
+        </h1>
+        <p className="text-neutral-400 text-base">
+          Full Stack Developer &bull; Software Engineer
+        </p>
+        <div className="flex items-center gap-5 text-neutral-400 mt-2">
+          <a href="https://github.com/islamborghini" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-100 transition-colors">
+            <FaGithub size={22} />
+          </a>
+          <a href="https://linkedin.com/in/islamassanov" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-100 transition-colors">
+            <FaLinkedin size={22} />
+          </a>
+          <a href="https://x.com/issa___777" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-100 transition-colors">
+            <FaXTwitter size={22} />
+          </a>
+          <a href="mailto:islam@uni.minerva.edu" className="hover:text-neutral-100 transition-colors">
+            <FaEnvelope size={22} />
+          </a>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
